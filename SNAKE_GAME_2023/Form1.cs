@@ -10,8 +10,8 @@ namespace SNAKE_GAME_2023
 
         int maxWidth;
         int maxHeight;
-        int score;
-        int highScore;
+        float score;
+        float highScore;
 
         Random rand = new Random();
 
@@ -251,7 +251,13 @@ namespace SNAKE_GAME_2023
         private void EatFood()
         {
 
-            score += 1;
+            score += 15.5f;
+            
+             if (score == 2150)
+            {
+                MessageBox.Show("FELICITARI, AI CASTIGAT ! ");
+                gameTimer.Stop();
+            }
             textScore.Text = "Score: " + score;
             Circle body = new Circle
             {
@@ -276,6 +282,8 @@ namespace SNAKE_GAME_2023
                 textHighScore.Text = "High Score: " + Environment.NewLine + highScore;
                 textHighScore.ForeColor = Color.Maroon;
                 textHighScore.TextAlign = ContentAlignment.MiddleCenter;
+                
+                MessageBox.Show(("ATI PIERDUT JOCUL ! VA RUGAM SA DATI CLICK " + " 'START' PENTRU A REINCEPE JOCUL ! :) "));
 
             }
 
